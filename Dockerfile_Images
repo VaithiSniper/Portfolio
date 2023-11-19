@@ -1,0 +1,31 @@
+# Some ARGs for the Build and Deployment
+ARG arch_build=amd64
+ARG arch_server=arm64/v8
+
+
+# ------------------------------- Optimize images ------------------------------- 
+FROM --platform=linux/${arch_build}  dpokidov/imagemagick:latest as image-optimize
+RUN apt-get update
+RUN apt-get install imagemagick webp optipng -y
+# Copy the image scripts into the container
+COPY ./image-scripts/ /home
+# Give permissions to the scripts
+# RUN chmod +x /home/convert-to-webp.sh
+RUN chmod +x /home/create-directories.sh
+RUN chmod +x /home/optimize-png.sh
+# Copy the images into the container
+WORKDIR /imgs
+COPY ./images .
+# Create the directories for the optimized images
+RUN /home/create-directories.sh
+# Convert the images to webp
+# RUN /home/convert-to-webp.sh
+RUN /home/optimize-png.sh
+# ------------------------------- Optimize images ------------------------------- 
+
+
+# ------------------------------- Final images ------------------------------- 
+FROM --platform=linux/${arch_build}  nginx:latest as image-nginx
+COPY --from=image-optimize /optimized /usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"]
+# ------------------------------- Optimize images ------------------------------- 

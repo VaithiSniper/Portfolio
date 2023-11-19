@@ -37,31 +37,8 @@ RUN minify -o events.html events.html
 # ------------------------------- Minify the static assets ------------------------------- 
 
 
-# ------------------------------- Optimize images ------------------------------- 
-FROM --platform=linux/${arch_build}  dpokidov/imagemagick:latest as image-optimize
-RUN apt-get update
-RUN apt-get install imagemagick webp optipng -y
-# Copy the image scripts into the container
-COPY ./image-scripts/ /home
-# Give permissions to the scripts
-# RUN chmod +x /home/convert-to-webp.sh
-RUN chmod +x /home/create-directories.sh
-RUN chmod +x /home/optimize-png.sh
-# Copy the images into the container
-WORKDIR /imgs
-COPY ./images .
-# Create the directories for the optimized images
-RUN /home/create-directories.sh
-# Convert the images to webp
-# RUN /home/convert-to-webp.sh
-RUN /home/optimize-png.sh
-# ------------------------------- Optimize images ------------------------------- 
-
-
 # ------------------------------- Setup webserver ------------------------------- 
 FROM --platform=linux/${arch_server}  nginx:latest as final
-# Copy static assets
-COPY --from=image-optimize /optimized/imgs /usr/share/nginx/html/images
 # Copy the CSS, and JS files into the container
 WORKDIR /usr/share/nginx/html
 COPY --from=minify /home/js/script.js .

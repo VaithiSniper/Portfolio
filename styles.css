@@ -62,7 +62,7 @@
 
  .carousel-inner {
      display: inline-block !important;
-     animation: 10s slide infinite linear;
+     animation: 15s slide infinite linear;
  }
 
  .carousel-item {
