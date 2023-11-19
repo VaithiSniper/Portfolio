@@ -1,0 +1,124 @@
+ .tab-btn {
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+     padding: 8px 16px;
+     border: 1px solid #ccc;
+     border-bottom: none;
+     border-radius: 10px 10px 10px 10px;
+ }
+
+ .tab-btn:hover {
+     background-color: #60a9f2;
+ }
+
+ .tab-btn:focus {
+     outline: none;
+ }
+
+ .tab-btn.active {
+     background-color: #60a9f2;
+ }
+
+ @keyframes slide {
+     from {
+         transform: translateX(0);
+     }
+
+     to {
+         transform: translateX(-100%);
+     }
+ }
+
+ .carousel-main {
+     overflow: hidden;
+     padding: 60px 0;
+     white-space: nowrap;
+     position: relative;
+ }
+
+ .carousel-main:before,
+ .carousel-main:after {
+     position: absolute;
+     top: 0;
+     width: 250px;
+     height: 100%;
+     content: "";
+     z-index: 2;
+ }
+
+ .carousel-main:before {
+     left: 0;
+     background: linear-gradient(to left, rgba(255, 255, 255, 0), #94C3F9);
+ }
+
+ .carousel-main:after {
+     right: 0;
+     background: linear-gradient(to right, rgba(255, 255, 255, 0), #94C3F9);
+ }
+
+ .carousel-main:hover .carousel-inner {
+     animation-play-state: paused;
+ }
+
+ .carousel-inner {
+     display: inline-block !important;
+     animation: 10s slide infinite linear;
+ }
+
+ .carousel-item {
+     display: inline-block;
+     margin-right: 20px;
+ }
+
+ body {
+     font-family: 'Roc Grotesk W05', sans-serif;
+     margin: 0;
+     padding: 0;
+ }
+
+ .inter {
+     font-family: 'Inter', sans-serif;
+     font-weight: 600 !important;
+ }
+
+ header {
+     color: #fff;
+     text-align: center;
+     padding: 40px 0;
+     border: #fff;
+     border-width: 2px;
+ }
+
+ nav ul {
+     list-style: none;
+     display: flex;
+     justify-content: center;
+     padding: 10px 0;
+     border: #fff;
+     border-width: 2px;
+ }
+
+ nav ul li {
+     margin: 0 50px;
+ }
+
+ nav a {
+     text-decoration: none;
+     gap: 10px;
+ }
+
+ section {
+     gap: 10px;
+     padding: 20px;
+ }
+
+ .job,
+ .event {
+     margin-bottom: 20px;
+ }
+
+ footer {
+     color: #fff;
+     text-align: center;
+     padding: 10px 0;
+ }

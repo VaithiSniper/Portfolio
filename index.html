@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="relative">
+    <!-- Video goes here -->
+    <video class="w-full h-auto absolute top-0 left-0 z-10" autoplay loop muted>
+      <source
+        src="https://assets-global.website-files.com/6425f546844727ce5fb9e5ab/64377ee0d96a223b1d5c6700_01_Homepage_Hero-transcode.mp4"
+        type="video/mp4"> <!-- Replace with your video source -->
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Content overlay -->
+    <div class="relative z-20">
+      <!-- Nav Banner -->
+      <section id="nav">
+        <nav class="text-xl text-white">
+          <ul>
+            <li><a href="index.html" class="text-black underline">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills & Certifications</a></li>
+
+            </li>
+            <li><a href="experience.html">Work Experience</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- Header Banner -->
+      <section id="header" class="h-screen w-full snap-both">
+        <div class="relative top-[20%]">
+          <header>
+            <h1 class="text-8xl">Vaitheeswaran J</h1>
+            <p class="text-2xl">
+              <strong>Web2</strong>
+              |
+              <strong>Web3</strong>
+              |
+              <strong>DevOps</strong>
+            </p>
+          </header>
+        </div>
+      </section>
+
+      <!-- Footer section -->
+      <footer
+        class="bg-[#479BEF] text-white text-center py-4 bottom-0 fixed w-full flex flex-row justify-center items-center text-center gap-x-12 space-x-12">
+        <span>
+          <a href="mailto:vaithee1307@gmail.com" target="_blank" rel="noopener noreferrer">
+            <img src="images/contact/icons8-mail-50.png" style="height: 48px; width: 48px;"></img>
+          </a>
+        </span>
+        <span>
+          <a href="https://github.com/VaithiSniper" target="_blank" rel="noopener noreferrer">
+            <img src="images/contact/icons8-github-30.png" style="height: 48px; width: 48px;"></img>
+          </a>
+        </span>
+        <span>
+          <a href="https://www.linkedin.com/in/vaitheeswaran-janakiraman-8231a3200" target="_blank"
+            rel="noopener noreferrer">
+            <img src="images/contact/icons8-linkedin-30.png" style="height: 48px; width: 48px;"></img>
+          </a>
+        </span>
+      </footer>
+
+    </div>
+  </div>
+</body>
+
+</html>
