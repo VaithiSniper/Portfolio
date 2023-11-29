@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="relative bg-[#94C3F7] h-screen">
+  <div class="relative bg-[#94C3F7] h-[1600px]">
 
     <!-- Content overlay -->
     <div class="relative z-20">
@@ -20,9 +20,8 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html" class="text-black underline">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="skills.html">Skills & Certifications</a></li>
-
-            </li>
             <li><a href="experience.html">Work Experience</a></li>
             <li><a href="events.html">Events</a></li>
           </ul>
@@ -31,17 +30,41 @@
 
       <!-- Header Banner -->
       <section id="header">
-        <header>
+        <header class="pb-0">
           <h1 class="text-6xl">About me</h1>
         </header>
       </section>
 
       <!-- Home section -->
       <section id="home">
-        <p class="text-2xl text-white tracking-wide">
+        <p
+          class="border border-white p-4 border-dashed text-2xl mt-0 text-white tracking-wide w-[60%] text-left mx-auto">
           Accomplished Web 2.0/Web 3.0 developer and DevOps practitioner with good teamwork, leadership and analytical
           skills. Have good experience working in AGILE delivery models and very adaptabile.
         </p>
+      </section>
+
+      <section class="container px-10 mx-auto items-center justify-center mt-2 flex flex-row space-y-8">
+        <div>
+          <h2 class="text-4xl text-gray-200 text-center font-semibold mb-4">
+            CV
+          </h2>
+          <div role="status"
+            class="flex items-center justify-center h-[890px] max-w-2xl bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700"
+            id="cv-skeleton">
+            <svg class="w-36 h-36 text-gray-200 dark:text-gray-600" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+              <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
+              <path
+                d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM9 13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2Zm4 .382a1 1 0 0 1-1.447.894L10 13v-2l1.553-1.276a1 1 0 0 1 1.447.894v2.764Z" />
+            </svg>
+            <span class="sr-only">Loading...</span>
+          </div>
+
+
+          <iframe src="https://drive.google.com/file/d/1fJUOFcJ0NK57kzXgT8BvkqZw0qfM3-3k/preview" width="640"
+            height="890" allow="autoplay" onload="resumeLoaded()"></iframe>
+        </div>
       </section>
 
       <!-- Footer section -->
@@ -74,6 +97,16 @@
 
     </div>
   </div>
+
+  <script>
+    var cv_skeleton = document.querySelector("#cv-skeleton");
+    function resumeLoaded(e) {
+      // on cv load, remove the skeleton
+      console.log("Imported properly")
+      console.log(e)
+      cv_skeleton.remove();
+    }
+  </script>
 </body>
 
 </html>
