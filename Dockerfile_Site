@@ -22,6 +22,7 @@ COPY about.html .
 COPY experience.html .
 COPY skills.html .
 COPY events.html .
+COPY projects.html .
 # Minify the JS, CSS, and HTML files
 WORKDIR /home/js/
 RUN minify -o script.js script.js
@@ -33,6 +34,7 @@ RUN minify -o about.html about.html
 RUN minify -o experience.html experience.html
 RUN minify -o skills.html skills.html
 RUN minify -o events.html events.html
+RUN minify -o projects.html projects.html
 # RUN sed -i 's/.png/.webp/g' *
 # ------------------------------- Minify the static assets ------------------------------- 
 
@@ -49,6 +51,7 @@ COPY --from=minify /home/html/about.html .
 COPY --from=minify /home/html/experience.html .
 COPY --from=minify /home/html/skills.html .
 COPY --from=minify /home/html/events.html .
+COPY --from=minify /home/html/projects.html .
 # Expose port 80 for the web server (already exposed by default but for clarity)
 EXPOSE 80
 # Set the default command to start the web server
